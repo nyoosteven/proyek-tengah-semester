@@ -1,62 +1,61 @@
-# Template Proyek Django PBP
+# Proyek Tengah Semester Kelompok D12
 
-Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
+## Nama-nama anggota kelompok
+    
+- Nyoo Steven Christopher Handoko (NPM 2106630050)
+- Jessica Aulia (NPM 2106633512)
+- Ferry (NPM 2106701936)
+- Fathan Hadyan (NPM 2106751940)
+- Meilany Mita Hapsari (NPM 2106751436)
+    
+## Tautan aplikasi Heroku
 
-*Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
 
-## Pendahuluan
 
-Repositori ini merupakan sebuah template yang dirancang untuk membantu mahasiswa yang sedang mengambil mata kuliah Pemrograman Berbasis Platform (CSGE602022) mengetahui struktur sebuah proyek aplikasi Django serta file dan konfigurasi yang penting dalam berjalannya aplikasi. Kamu dapat dengan bebas menyalin isi dari repositori ini atau memanfaatkan repositori ini sebagai pembelajaran sekaligus awalan dalam membuat sebuah proyek Django.
 
-## Cara Menggunakan
+## Cerita aplikasi yang diajukan serta manfaatnya
 
-Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nantinya akan kamu modifikasi:
+***RECOVER TOGETHER RECOVER STRONGER***
 
-1. Buka laman GitHub repositori templat kode, lalu klik tombol "**Use this template**"
-   untuk membuat salinan repositori ke dalam akun GitHub milikmu.
-2. Buka laman GitHub repositori yang dibuat dari templat, lalu gunakan perintah
-   `git clone` untuk menyalin repositorinya ke suatu lokasi di dalam sistem
-   berkas (_filesystem_) komputermu:
+Itulah *tagline* yang diusung oleh Pemerintah Indonesia pada G20 kali ini. G20 adalah kelompok informal dari 19 negara dan Uni Eropa, serta pewakilan dari International Monetary Fund (IMF) dan World Bank (WB). G20 merupakan forum ekonomi utama dunia yang memiliki posisi strategis karena secara kolektif mewakili sekitar 65% penduduk dunia, 79% perdagangan global, dan setidaknya 85% perekonomian dunia.
 
-   ```shell
-   git clone <URL ke repositori di GitHub> <path ke suatu lokasi di filesystem>
-   ```
-3. Masuk ke dalam repositori yang sudah di-_clone_ dan jalankan perintah berikut
-   untuk menyalakan _virtual environment_:
+Pemerintah Indonesia memiliki tiga isu prioritas yakni kesehatan global, transformasi ekonomi digital, dan transisi energi. Pada pertemuan G20 yang akan diselenggarakan pada tanggal 15—16 November 2022, akan dibahas dua arus isu, yakni Finance Track dan Sherpa Track. Finance Track adalah jalur pembahasan dalam forum G20 yang berfokus pada topik ekonomi dan keuangan, sedangkan Sherpa Track adalah jalur pembahasan dalam forum G20 yang berfokus pada topik di luar topik Finance Track, seperti antikorupsi, ekonomi digital, pertanian, pendidikan, pariwisata, dan lain-lain.
 
-   ```shell
-   python -m venv env
-   ```
-4. Nyalakan environment dengan perintah berikut:
+Salah satu topik yang dibahas pada isu Sherpa Track yang menarik perhatian kami adalah topik mengenai kesehatan. Seperti yang kita tahu, pandemi COVID 19 telah mengubah kondisi dunia secara total, baik dalam sisi ekonomi, budaya, pendidikan, politik, maupun kesehatan. Sektor kesehatan yang terganggu tidak hanya mengenai sektor penyakit yang berhubungan langsung dengan COVID 19, tetapi juga dari sisi kesehatan mental.
 
-   ```shell
-   # Windows
-   .\env\Scripts\activate
-   # Linux/Unix, e.g. Ubuntu, MacOS
-   source env/bin/activate
-   ```
-5. Install dependencies yang dibutuhkan untuk menjalankan aplikasi dengan perintah berikut:
+Walaupun WHO menyebutkan bahwa tingkat *prevalence*  dari *anxiety* dan *depression*  meningkat 25% selama pandemi COVID 19, jumlah orang yang memiliki gejala *mental health disorder* berjumlah 792 juta orang. Angka yang tidak bisa dibilang kecil. Di Indonesia, terdapat 277 ribu kasus kesehatan jiwa di Indonesia. Namun, angka tersebut bisa menjadi jauh lebih besar. Hal tersebut disebabkan orang yang memiliki gejala *mental health disorder* cenderung tidak menceritakan keluh kesahnya. Hal tersebut disebabkan oleh banyak faktor, salah satunya adalah mengenai stigma mengenai kesehatan mental di masyarakat dan kesadaran akan kesehatan mental itu sendiri.
 
-   ```shell
-   pip install -r requirements.txt
-   ```
+Kesehatan mental merupakan hal yang penting untuk disadari oleh semua orang. Maka dari itu, kami dari kelompok PBP D12 membuat website dengan tujuan untuk meningkatkan kesadaran akan kesehatan mental dan menyediakan wadah bagi orang yang ingin menceritakan keluh kesahnya. Di website ini, akan ada halaman yang berisikan informasi yang berkaitan dengan kesehatan mental. Selain itu, akan ada *cards* dimana seseorang bisa menceritakan dan menampilkan cerita tersebut kepada banyak orang.
 
-6. Jalankan aplikasi Django menggunakan server pengembangan yang berjalan secara
-   lokal:
+Selaras dengan semangat G20, kami yakin, kehadiran website ini dapat membantu mewujudkan tujuan kami. 
 
-   ```shell
-   python manage.py runserver
-   ```
-7. Bukalah `http://localhost:8000` pada browser favoritmu untuk melihat apakah aplikasi sudah berjalan dengan benar.
+[Sumber 1](https://www.g20.org/about-the-g20/) | [Sumber 2](https://diskominfotik.lampungprov.go.id/detail-post/apa-saja-isu-yang-dibahas-dalam-g20) | [Sumber 3](https://ourworldindata.org/mental-health) | [Sumber 4](https://unkartur.ac.id/blog/2022/01/04/membangun-mental-health-awareness-untuk-mencapai-generasi-emas-indonesia-2045/)
+## Daftar modul yang akan diimplementasikan
+- **Halaman Utama**
+Halaman utama akan berisikan nama website, cards cerita, dan card halaman informasi
+- **Halaman Login**
+Halaman login akan berisi form untuk login
+- **Halaman Register**
+Halaman register akan berisi form untuk register pengguna baru
+- **Halaman Profil**
+Halaman profil akan berisi data user dan riwayat cards user
+- **Halaman Tambah Card**
+Halaman tambah card akan memuat tampilan form untuk menambah card
+- **Halaman Informasi**
+Halaman informasi akan berisi informasi mengenai kesehatan mental
+- **Halaman About** 
+Halaman about akan berisi informasi pembuat website
 
-## Contoh Deployment 
+- **Card**
+Card adalah sebuah komponen yang berisikan:
+    - Username
+    - Tanggal Card dibuat
+    - Teks deskripsi singkat
+    - Main Text
 
-Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
+## Role atau peran pengguna beserta deskripsinya
+- **Logged-out user**
+Pengguna yang belum login mampu untuk melihat card dan mengakses halaman informasi, halaman about, dan halaman lainnya.
 
-Untuk melakukan deployment, kamu dapat melihat instruksi yang ada pada [Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-0).
-
-Untuk contoh aplikasi Django yang sudah di deploy, dapat kamu akses di [https://django-pbp-template.herokuapp.com/](https://django-pbp-template.herokuapp.com/)
-
-## Credits
-
-Template ini dibuat berdasarkan [PBP Ganjil 2021](https://gitlab.com/PBP-2021/pbp-lab) yang ditulis oleh Tim Pengajar Pemrograman Berbasis Platform 2021 ([@prakashdivyy](https://gitlab.com/prakashdivyy)) dan [django-template-heroku](https://github.com/laymonage/django-template-heroku) yang ditulis oleh [@laymonage, et al.](https://github.com/laymonage). Template ini dirancang sedemikian rupa sehingga mahasiswa dapat menjadikan template ini sebagai awalan serta acuan dalam mengerjakan tugas maupun dalam berkarya.
+- **Logged-in user**
+Pengguna yang telah login mampu untuk menambahkan card baru dan melihat riwayat card yang telah ia tambahkan serta memiliki semua kemampuan yang dimiliki oleh Logged-out user
