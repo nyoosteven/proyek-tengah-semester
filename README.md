@@ -9,8 +9,7 @@
 - Meilany Mita Hapsari (NPM 2106751436)
     
 ## Tautan aplikasi Heroku
-
-
+https://proyek-tengah-semester-d12.herokuapp.com/
 
 
 ## Cerita aplikasi yang diajukan serta manfaatnya
@@ -30,21 +29,23 @@ Kesehatan mental merupakan hal yang penting untuk disadari oleh semua orang. Mak
 Selaras dengan semangat G20, kami yakin, kehadiran website ini dapat membantu mewujudkan tujuan kami. 
 
 [Sumber 1](https://www.g20.org/about-the-g20/) | [Sumber 2](https://diskominfotik.lampungprov.go.id/detail-post/apa-saja-isu-yang-dibahas-dalam-g20) | [Sumber 3](https://ourworldindata.org/mental-health) | [Sumber 4](https://unkartur.ac.id/blog/2022/01/04/membangun-mental-health-awareness-untuk-mencapai-generasi-emas-indonesia-2045/)
+
 ## Daftar modul yang akan diimplementasikan
 - **Halaman Utama**
-Halaman utama akan berisikan nama website, cards cerita, dan card halaman informasi
+Halaman utama akan berisikan nama website, cards cerita, dan card halaman informasi. Cards cerita akan menampilkan card cerita dari para user. 
 - **Halaman Login**
-Halaman login akan berisi form untuk login
+Halaman login akan berisi form untuk login.
 - **Halaman Register**
-Halaman register akan berisi form untuk register pengguna baru
+Halaman register akan berisi form untuk register pengguna baru.
 - **Halaman Profil**
-Halaman profil akan berisi data user dan riwayat cards user
+Halaman profil akan berisi data user dan riwayat cards user.
 - **Halaman Tambah Card**
-Halaman tambah card akan memuat tampilan form untuk menambah card
-- **Halaman Informasi**
+Halaman tambah card akan memuat tampilan form untuk menambah card. Card tersebut nantinya akan ditambahkan di halaman utama beserta dengan card - card lainnya.
+- **Halaman Informasi Penyakit**
 Halaman informasi akan berisi informasi mengenai kesehatan mental
+Kesehatan mental tersebut meliputi nama penyakit, deskripsi, gejala, statistik.
 - **Halaman About** 
-Halaman about akan berisi informasi pembuat website
+Halaman about akan berisi informasi pembuat website.
 
 - **Card**
 Card adalah sebuah komponen yang berisikan:
@@ -52,7 +53,13 @@ Card adalah sebuah komponen yang berisikan:
     - Tanggal Card dibuat
     - Teks deskripsi singkat
     - Main Text
-
+    
+- **Card Informasi**
+Card informasi adalah sebuah komponen yang berisikan:
+    - Gambar ilustrasi
+    - Nama penyakit
+    - Deskripsi singkat
+    - Link untuk menuju halaman tersebut.
 ## Role atau peran pengguna beserta deskripsinya
 - **Logged-out user**
 Pengguna yang belum login mampu untuk melihat card dan mengakses halaman informasi, halaman about, dan halaman lainnya.
