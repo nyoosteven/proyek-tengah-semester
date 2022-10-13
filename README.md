@@ -9,8 +9,7 @@
 - Meilany Mita Hapsari (NPM 2106751436)
     
 ## Tautan aplikasi Heroku
-
-
+https://proyek-tengah-semester-d12.herokuapp.com/
 
 
 ## Cerita aplikasi yang diajukan serta manfaatnya
