@@ -120,11 +120,11 @@
           <ul class="navbar-nav">
             {% if not request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'loveiscaring:login' %}">Login</a>
+              <a class="nav-link active" href="{% url 'authentication:login' %}">Login</a>
               <hr class="divider">
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary" href="{% url 'loveiscaring:register' %}" role="button">Sign Up</a>
+              <a class="btn btn-primary" href="{% url 'authentication:register' %}" role="button">Sign Up</a>
             </li>
             {% else %}
             <li class="nav-item dropdown">
