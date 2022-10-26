@@ -9,6 +9,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="icon" type="image/x-icon" href="{% static 'logo.ico' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -78,6 +82,56 @@
       padding-top: 6rem;
       padding-bottom: 6rem;
     }
+
+    .font-kanit-xlight{
+      font-family: 'Kanit', sans-serif;
+      font-weight: 200;
+    }
+
+    .font-kanit-light{
+      font-family: 'Kanit', sans-serif;
+      font-weight: 300;
+    }
+
+    .font-kanit-regular{
+      font-family: 'Kanit', sans-serif;
+      font-weight: 400;
+    }
+    
+    .font-secular-one{
+      font-family: 'Secular One', sans-serif;
+    }
+
+    .half-background { 
+      background: linear-gradient(to top, #9BB39D 40%, transparent 0%); 
+    }
+
+    ::selection {
+      color: white;
+      background: #9BB39D;
+    }
+
+    .readmore:link {
+      color: #A48054;
+      text-decoration: none;
+    }
+
+    /* visited link */
+    .readmore:visited {
+      color: #CEA16A;
+    }
+
+    /* mouse over link */
+    .readmore:hover {
+      color: #CEA16A;
+    }
+
+    /* selected link */
+    .readmore:active {
+      color: #ff8c00;
+    }
+
+    
   </style>
   {% block meta %}
   {% endblock meta %}
