@@ -9,10 +9,8 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script>
   $(document).ready(function () {
-    $.get("{% url 'loveiscaring:show_json' %}", function (data) {
+    $.get("{% url 'timeline:show_json' %}", function (data) {
       $.each(data, function(index, value) {
-        console.log(value)
-        console.log(index)
         var $items = $(
           `
                 <div class="col-6 col-md-3 col-xxl-2 grid-item">
@@ -42,7 +40,7 @@
       var text = $("#text").val();
       var desc = $("#desc").val();
       var data = {text: text, desc: desc, csrfmiddlewaretoken: '{{ csrf_token }}'};
-      $.post("/add/", data, function(data){
+      $.post("{% url 'timeline:add' %}", data, function(data){
 
         var $items = $(
           `

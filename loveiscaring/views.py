@@ -4,10 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-from django.http import HttpResponse
-from django.http import JsonResponse
-from django.core import serializers
-from loveiscaring.models import Cards
 
 def index(request):
     return render(request, 'index.html')
@@ -41,28 +37,3 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('loveiscaring:index')
-
-def show_json(request):
-    data = Cards.objects.all()
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-
-def add(request):
-    if request.method == "POST":
-        text = request.POST.get("text")
-        desc = request.POST.get("desc")
-        task = Cards.objects.create(
-            user=request.user,
-            username=request.user.username,
-            text=text,
-            desc=desc,
-        )
-    return JsonResponse(
-        {
-            "pk": task.id,
-            "fields": {
-                "text": task.text,
-                "desc": task.desc,
-                "username": task.user.username,
-                },
-        }
-    )
