@@ -23,7 +23,11 @@
                         <p>${value.fields.desc}</p>
                       </div>
                       <div class="d-flex justify-content-end align-items-end">
+                        {% if not request.user.is_authenticated %}
+                        <small class="text-muted">Login untuk melihat username</small>
+                        {% else %}
                         <small class="text-muted">${value.fields.username}</small>
+                        {% endif %}
                       </div>
                     </div>
                   </div>
@@ -39,7 +43,7 @@
       var desc = $("#desc").val();
       var data = {text: text, desc: desc, csrfmiddlewaretoken: '{{ csrf_token }}'};
       $.post("/add/", data, function(data){
-        console.log(data);
+
         var $items = $(
           `
                 <div class="col-6 col-md-3 col-xxl-2 grid-item">
