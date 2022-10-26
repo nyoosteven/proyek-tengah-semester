@@ -40,7 +40,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('loveiscaring:login')
+    return redirect('loveiscaring:index')
 
 def show_json(request):
     data = Cards.objects.all()
@@ -66,8 +66,3 @@ def add(request):
                 },
         }
     )
-
-def is_logged_in(request):
-    user = request.user
-    if user.is_authenticated:
-        return JsonResponse(user)
