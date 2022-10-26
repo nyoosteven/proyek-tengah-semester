@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>love is caring</title>
+{% endblock meta %}
+
+{% block content %}
+<!-- Jumbotron -->
+<section class="py-5 text-center container mt-5">
+  <div class="row py-5">
+    <div class="col-lg-6 col-md-8 col-12 mx-auto">
+      <h1 class="fw-light">love is caring</h1>
+      <p class="lead text-muted">ini adalah sebuah teks deskripsi</p>
+      <p>
+        <a href="{% url 'timeline:show_timeline' %}" class="btn btn-primary my-2">tombol</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- cards -->
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> -->
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-xxl-2 d-flex ">
+        <div class="card shadow-sm">
+          <img class="bd-placeholder-img card-img-top img-fluid" src="{% static 'mentalhealth1.jpg' %}"/>
+
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">Depression</h5>
+              <p class="card-text">A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder</p>
+            </div>
+            <div class="d-flex justify-content-end align-items-end">
+              <small class="text-muted"><a href="article.html">Read more</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-6 col-md-4 col-xxl-2 d-flex align-items-stretch">
+        <div class="card shadow-sm">
+          <img class="bd-placeholder-img card-img-top" src="{% static 'mentalhealth2.jpg' %}"/>
+
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">Schizophrenia</h5>
+              <p class="card-text">A disorder that affects a person's ability to think, feel and behave clearly.</p>
+            </div>
+            <div class="d-flex justify-content-end align-items-end">
+              <small class="text-muted"><a href="article.html">Read more</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div div class="col-6 col-md-4 col-xxl-2">
+        <div class="card shadow-sm">
+          <img class="bd-placeholder-img card-img-top" src="{% static 'mentalhealth3.jpg' %}"/>
+
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">Anxiety disorder</h5>
+              <p class="card-text">A mental health disorder characterised by feelings of worry, anxiety or fear that are strong enough to interfere with one's daily activities.</p>
+            </div>
+            <div class="d-flex justify-content-end align-items-end">
+              <small class="text-muted"><a href="article.html">Read more</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-xxl-2 d-flex align-items-stretch">
+        <div class="card shadow-sm">
+          <img class="bd-placeholder-img card-img-top img-fluid" src="{% static 'mentalhealth1.jpg' %}"/>
+
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">Depression</h5>
+              <p class="card-text">A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder</p>
+            </div>
+            <div class="d-flex justify-content-end align-items-end">
+              <small class="text-muted"><a href="article.html">Read more</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-6 col-md-4 col-xxl-2 d-flex align-items-stretch">
+        <div class="card shadow-sm">
+          <img class="bd-placeholder-img card-img-top" src="{% static 'mentalhealth2.jpg' %}"/>
+
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">Schizophrenia</h5>
+              <p class="card-text">A disorder that affects a person's ability to think, feel and behave clearly.</p>
+            </div>
+            <div class="d-flex justify-content-end align-items-end">
+              <small class="text-muted"><a href="article.html">Read more</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div div class="col-6 col-md-4 col-xxl-2">
+        <div class="card shadow-sm">
+          <img class="bd-placeholder-img card-img-top" src="{% static 'mentalhealth3.jpg' %}"/>
+
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">Anxiety disorder</h5>
+              <p class="card-text">A mental health disorder characterised by feelings of worry, anxiety or fear that are strong enough to interfere with one's daily activities.</p>
+            </div>
+            <div class="d-flex justify-content-end align-items-end">
+              <small class="text-muted"><a href="article.html">Read more</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}
