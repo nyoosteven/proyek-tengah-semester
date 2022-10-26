@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'loveiscaring',
-    'authentication'
-    'timeline'
+    'authentication',
+    'timeline',
 ]
 
 MIDDLEWARE = [
