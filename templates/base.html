@@ -131,7 +131,13 @@
       color: #ff8c00;
     }
 
+    .bg-navbar{
+      background-color: #f9f9f9;
+    }
     
+    .bg-album{
+      background-color: #faf5f0;
+    }
   </style>
   {% block meta %}
   {% endblock meta %}
@@ -139,7 +145,7 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-md bg-light fixed-top">
+  <nav class="navbar shadow navbar-expand-md fixed-top bg-navbar">
     <div class="container">
 
       <a class="navbar-brand" href="{% url 'loveiscaring:index' %}"><img class="bd-placeholder-img card-img-top" src="{% static 'logo.png' %}" style="width: 30px;"/>
@@ -178,7 +184,7 @@
               <hr class="divider">
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary" href="{% url 'authentication:register' %}" role="button">Sign Up</a>
+              <a class="btn btn-primary border rounded-0" href="{% url 'authentication:register' %}" role="button">Sign Up</a>
             </li>
             {% else %}
             <li class="nav-item dropdown">
