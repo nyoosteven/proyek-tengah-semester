@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('loveiscaring.urls')),
     path('timeline/', include('timeline.urls')),
+    path('artikel/',include('artikel.urls'))
 ]
