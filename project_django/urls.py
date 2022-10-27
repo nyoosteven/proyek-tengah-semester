@@ -21,5 +21,4 @@ urlpatterns = [
     path('', include('loveiscaring.urls')),
     path('timeline/', include('timeline.urls')),
     path('authentication/', include('authentication.urls')),
-
 ]
