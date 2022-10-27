@@ -75,6 +75,13 @@
       itemSelector: '.grid-item',
     });
 
+    var typed = new Typed('#typed', {
+          strings: ["caring"],
+          typeSpeed: 60,
+          backSpeed: 60,
+          loop: true,
+        });
+
   });
 </script>
 <section class="py-5 text-center container mt-5">
@@ -84,9 +91,9 @@
       <p class="lead text-muted">ceritakan disini</p>
       <p>
         {% if not request.user.is_authenticated %}
-        <a class="btn btn-primary" href="{% url 'loveiscaring:login' %}">Tambah task baru</a>
+        <a class="btn btn-primary border rounded-0" href="{% url 'loveiscaring:login' %}">Login untuk Menambahkan Card Baru</a>
         {% else %}
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@mdo">Tambah task baru</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@mdo">Tambah Card Baru</button>
         {% endif %}
       </p>
     </div>

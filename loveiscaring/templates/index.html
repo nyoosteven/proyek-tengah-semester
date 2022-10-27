@@ -7,13 +7,26 @@
 
 {% block content %}
 <!-- Jumbotron -->
+<script>
+  $(document).ready(function () {
+    var typed = new Typed('#typed', {
+          strings: ["caring"],
+          typeSpeed: 120,
+          backSpeed: 120,
+          backDelay: 2000,
+          startDelay: 500,
+          loop: true,
+        });
+  });
+</script>
+
 <section class="py-5 text-center container mt-5">
   <div class="row py-5 my-5">
     <div class="col-lg-6 col-md-8 col-12 mx-auto">
-      <p class="fw-light display-4 font-kanit-regular mb-0 d-inline">love. is. <p class="fw-light display-4 font-kanit-regular mb-0 half-background d-inline">caring</p></p>
-      <p class="lead text-muted mt">A place where you can share your thoughts</p>
+      <p class="fw-light display-4 font-kanit-regular mb-0 d-inline">love. is. <span class="fw-light display-4 font-kanit-regular mb-0 half-background d-inline" id="typed"></span></p>
+      <p class="lead text-muted mt-4 ">A place where you can share your thoughts</p>
       <p class="mb-0">
-        <a href="{% url 'timeline:show_timeline' %}" class="btn btn-primary mt-5 px-5 py-2 border rounded-0 font-kanit">Lihat Timeline</a>
+        <a href="{% url 'timeline:show_timeline' %}" class="btn btn-primary mt-4 px-5 py-2 border rounded-0 font-kanit-light">Lihat Timeline</a>
       </p>
     </div>
   </div>
