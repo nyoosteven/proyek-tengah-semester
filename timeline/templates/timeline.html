@@ -10,12 +10,17 @@
 <script>
   $(document).ready(function () {
     $.get("{% url 'timeline:show_json' %}", function (data) {
+      var clas = ['bg-card-1', 'bg-card-2','bg-card-3', 'bg-card-4','bg-card-5', 'bg-card-6'];
+      var i = 0;
       $.each(data, function(index, value) {
+        if (i === 6){
+          i = 0;
+        }
         var $items = $(
           `
                 <div class="col-6 col-md-3 col-xxl-2 grid-item">
-                  <div class="card shadow-sm">  
-                    <div class="card-body">
+                  <div class="card border-0 rounded-0 ${clas[i]}">  
+                    <div class="card-body border border-2">
                       <span class="h3 font-secular-one mb-0">"</span>
                       <div>
                         <h5 class="card-title">${value.fields.text}</h5>
@@ -34,6 +39,7 @@
           `
         );
         $(".grid").prepend($items).masonry('prepended', $items );
+        i++;
       });
     });
 
@@ -87,9 +93,9 @@
   </div>
 </section> 
 <!-- cards -->
-<div class="album py-5 bg-light">
+<div class="album py-5 bg-album">
   <div class="container">
-    <div class="row g-3 grid" id="contener"></div>
+    <div class="row g-4 grid" id="contener"></div>
   </div>
 </div>
 
