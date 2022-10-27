@@ -1,0 +1,24 @@
+{% block content %} 
+
+ 
+<script>
+    $("#kartu").submit(function(){
+        $.ajax(
+        {
+          type: "POST",
+          url: "",
+          headers: { "X-CSRFToken": csrftoken }, // give CSRF token to the header
+          mode: "same-origin", // Do not send CSRF token to another domain.
+          data:
+          {
+            title: title,
+            description: description,
+          },
+          success: response => {
+            $("#create-task-form").trigger("reset");
+            $("#todolist").append(card(response));
+          },
+        });
+    })
+</script>
+{% endblock content %} 
