@@ -9,6 +9,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="icon" type="image/x-icon" href="{% static 'logo.ico' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -78,28 +82,6 @@
       padding-top: 6rem;
       padding-bottom: 6rem;
     }
-
-    .flex{
-      display:flex;
-    }
-
-    .flex-col{
-      flex-direction: column;
-    }
-
-    .items-center{
-      align-items: center;
-    }
-
-    .bg-red-500{
-      background-color: red;
-    }
-
-    .justify-center{
-      justify-content: center;
-    }
-
-    .text-center{text-align: center;}
   </style>
   {% block meta %}
   {% endblock meta %}
@@ -107,7 +89,7 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-md bg-light fixed-top">
+  <nav class="navbar shadow navbar-expand-md fixed-top bg-navbar">
     <div class="container">
 
       <a class="navbar-brand" href="{% url 'loveiscaring:index' %}"><img class="bd-placeholder-img card-img-top" src="{% static 'logo.png' %}" style="width: 30px;"/>
@@ -142,11 +124,11 @@
           <ul class="navbar-nav">
             {% if not request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'loveiscaring:login' %}">Login</a>
+              <a class="nav-link active" href="{% url 'authentication:login' %}">Login</a>
               <hr class="divider">
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary" href="{% url 'loveiscaring:register' %}" role="button">Sign Up</a>
+              <a class="btn btn-primary border rounded-0" href="{% url 'authentication:register' %}" role="button">Sign Up</a>
             </li>
             {% else %}
             <li class="nav-item dropdown">
