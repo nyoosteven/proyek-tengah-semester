@@ -21,5 +21,5 @@ urlpatterns = [
     path('', include('loveiscaring.urls')),
     path('timeline/', include('timeline.urls')),
     path('authentication/', include('authentication.urls')),
-    path('artikel/',include('artikel.urls'))
+
 ]

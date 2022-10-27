@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -144,7 +145,7 @@
     }
 
     .bg-card-2{
-      box-shadow: 8px 8px #CEA16A;
+      box-shadow: 8px 8px #ACA355;
     }
 
     .bg-card-3{
@@ -162,6 +163,18 @@
     .bg-card-6{
       box-shadow: 8px 8px #9BB39D;
     }
+
+    .bg-card-body{
+      box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .w-90{
+      width: 95%!important;
+    }
+
+    .w-91{
+      width: 94%!important;
+    }
   </style>
   {% block meta %}
   {% endblock meta %}
@@ -176,20 +189,20 @@
       </a>
       
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">love is caring</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body justify-content-between align-items-center">
           
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 Conditions
               </a>
               <ul class="dropdown-menu">
@@ -212,7 +225,7 @@
             </li>
             {% else %}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle fs-6 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle fs-6 " href="#" role="button" data-bs-toggle="dropdown">
                 Welcome, {{user}}!
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
@@ -229,15 +242,18 @@
 
   {% block content %}
   {% endblock content %}
-  <footer class="text-muted py-5">
-    <div class="container">
-      <p class="float-end mb-1">
-        <a href="#">Back to top</a>
-      </p>
-      <p class="mb-1">&copy; Kelompok PBP D12</p>
-      <p class="mb-0">Nulis apa yah</p>
-    </div>
-  </footer>
+  <div class="container ">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+      <p class="col-md-4 mb-0 pe-5 text-muted">love. is. caring<br>by Kelompok PBP D-12</p>
+  
+      <span class="col-md-4 d-flex align-items-center justify-content-center link-dark text-decoration-none" id="logo-footer"><img class="bd-placeholder-img card-img-top" src="{% static 'logo.png' %}" style="width: 40px;"/></span>
+  
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="#" class="nav-link px-2 ps-0 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 ps-0 text-muted">About</a></li>
+      </ul>
+    </footer>
+  </div>
 </body>
 
 </html>

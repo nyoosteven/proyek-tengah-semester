@@ -8,19 +8,17 @@ from django.contrib.auth import logout
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
-from authentication.forms import registerForm
-from authentication.models import RegisterProfile
+from authentication.forms import RegisterForm
 # Create your views here.
 
 def register_profile(request):
-    form = registerForm()
+    form = RegisterForm()
 
     if request.method == "POST":
-        form = registerForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Akun telah berhasil dibuat!')
-            return redirect('loveiscaring:index')
+            return redirect('authentication:login')
     
     context = {'form':form}
     return render(request, 'register.html', context)
