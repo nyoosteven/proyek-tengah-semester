@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'loveiscaring',
     'authentication',
     'timeline',
+    'artikel'
 ]
 
 MIDDLEWARE = [
