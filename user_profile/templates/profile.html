@@ -37,6 +37,11 @@
         $(".grid").prepend($items).masonry('prepended', $items );
         i++;
       });
+
+      $('.grid').masonry({
+        // options
+        itemSelector: '.grid-item',
+      });
     });
   })
 </script>
