@@ -2,11 +2,12 @@
 
  
 <script>
+  
     $("#kartu").submit(function(){
         $.ajax(
         {
           type: "POST",
-          url: "",
+          url: "}",
           headers: { "X-CSRFToken": csrftoken }, // give CSRF token to the header
           mode: "same-origin", // Do not send CSRF token to another domain.
           data:
