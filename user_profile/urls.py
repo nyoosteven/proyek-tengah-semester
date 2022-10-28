@@ -1,11 +1,10 @@
 from django.urls import path
-from user_profile.views import show_profile
-from user_profile.views import edit_profile
+from user_profile.views import show_json, show_profile
 
 app_name = 'user_profile'
 
 urlpatterns = [
     path('', show_profile, name='show_profile'),
-    path('edit_profile/', edit_profile, name='edit_profile'),
+    path('json/', show_json, name='show_json'),
 
 ]
