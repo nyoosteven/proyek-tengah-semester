@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
-from loveiscaring.models import Cards
+from timeline.models import Cards
 
 # Create your views here.
 
