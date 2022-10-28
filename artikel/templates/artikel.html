@@ -1,6 +1,12 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
+<style>
+  .flex{
+    display:flex;
+  }
+</style>
+
 <body>
   <main>
   <!-- Jumbotron -->
@@ -39,14 +45,17 @@
   </div>
   <div class="container flex justify-center">
 
-    <div class="row">
+    <div class="row bg">
       <div class="col col-lg-2 col-xl-2"> </div>
 
-      <div class="mt-3 col col-lg-8 col-xl-8">
+      <div class="mt-3">
         <h3><span>Bagaimana Tanggapan Anda?</span></h3>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kartu" data-bs-whatever="@mdo">Tambah task baru</button>
       </div>
       <div class="col col-lg-2 col-xl-2"> </div>
+      <div class="max-w-[80%] mx-auto">
+        <div id="tambahkartu" class="flex flex-wrap gap-5 justify-center"></div>
+      </div>
     </div>
   </div>
   </main>
@@ -64,11 +73,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" onsubmit="return false">
+        <form method="POST" id="taskbaru">
           {% csrf_token %}
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Deskripsi Task</label>
-            <textarea class="form-control" id="desc"></textarea>
+            <textarea name='desc' class="form-control" id="desc"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -80,23 +89,49 @@
   </div>
 </div>
 
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script>
-  $("#kartu").submit(function(){
+
+  // console.log(window.location.href)
+  $(document).ready(function () {
+    const card = (item) => `
+                <div class="flex col-6 col-md-3 col-xxl-2 grid-item">
+                  <div class="flex card border-0 rounded-0 w-90">  
+                    <div class="card-body border border-2 bg-card-body">
+                      <span class="h3 font-secular-one mb-0">"</span>
+                      <div>
+                        <p>${item.fields.desc}</p>
+                      </div>
+                      <div class="d-flex justify-content-end align-items-end">
+                      </div>
+                    </div>
+                  </div>
+                </div>`
+    
+    const getTask = () => {
+    $.get("../json/{{tipe}}", data => {
+      $.each(data, (i, item) => {
+        $("#tambahkartu").append(card(item));
+      });
+    });
+  }
+
+  $("#taskbaru").submit(function(event){
+    event.preventDefault();
       $.ajax(
       {
         type: "POST",
-        url: "",
-        headers: { "X-CSRFToken": csrftoken }, // give CSRF token to the header
-        mode: "same-origin", // Do not send CSRF token to another domain.
-        data:
-        {
-          description: description,
-        },
+        url: "../addcard/{{tipe}}",
+        //headers: { "X-CSRFToken": csrftoken }, // give CSRF token to the header
+        data: $("#taskbaru").serialize(),
         success: response => {
-          $("#create-task-form").trigger("reset");
-          $("#todolist").append(card(response));
+          $("#taskbaru").trigger("reset");
+          $("#tambahkartu").append(card(response));
         },
       });
-  })
+  });
+
+  getTask();
+});
 </script>
 {% endblock content %}
