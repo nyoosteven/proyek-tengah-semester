@@ -6,7 +6,6 @@
 {% endblock meta %}
 
 {% block content %}
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script>
   $(document).ready(function () {
     var clas = ['bg-card-1', 'bg-card-2','bg-card-3', 'bg-card-4','bg-card-5', 'bg-card-6'];
@@ -95,7 +94,7 @@
       <p class="lead text-muted">ceritakan disini</p>
       <p>
         {% if not request.user.is_authenticated %}
-        <a class="btn btn-primary border rounded-0" href="{% url 'loveiscaring:login' %}">Login untuk Menambahkan Card Baru</a>
+        <a class="btn btn-primary border rounded-0" href="{% url 'authentication:login' %}">Login untuk Menambahkan Card Baru</a>
         {% else %}
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@mdo">Tambah Card Baru</button>
         {% endif %}
