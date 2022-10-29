@@ -10,7 +10,6 @@ from django.contrib.auth.decorators import login_required
 
 def show_timeline(request):
     form = CreateCardForm(data=request.POST or None)    
-    new_card = None
     if request.method == "GET":
         context = {'form': form}
         return render(request, 'timeline.html', context)

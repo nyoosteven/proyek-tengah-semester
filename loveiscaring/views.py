@@ -8,3 +8,6 @@ def index(request):
 def logout_user(request):
     logout(request)
     return redirect('loveiscaring:index')
+
+def about(request):
+    return render(request, 'about.html')
