@@ -162,3 +162,13 @@
   .login{
     z-index: 9999;
   }
+
+  .img-about{
+    max-width: 206px;
+  }
+
+  .about-us {
+    line-height: 1.8;
+  }
+
+  
