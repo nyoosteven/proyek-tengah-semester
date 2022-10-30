@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def show_timeline(request):
-    form = CreateCardForm(data=request.POST or None)    
+    form = CreateCardForm()    
     if request.method == "GET":
         context = {'form': form}
         return render(request, 'timeline.html', context)
@@ -20,25 +20,12 @@ def show_json(request):
 
 @login_required(login_url="/authentication/login")       
 def add_card(request):
-    if request.method == "POST":
-        text = request.POST.get("text")
-        desc = request.POST.get("desc")
-        card = Cards.objects.create(
-            user=request.user,
-            username=request.user.username,
-            text=text,
-            desc=desc,
+    form = CreateCardForm(data=request.POST or None)    
+    if request.method == "POST" and form.is_valid():
+        data = form.save(request)
+        return JsonResponse(
+            data
         )
-    return JsonResponse(
-        {
-            "pk": card.id,
-            "fields": {
-                "text": card.text,
-                "desc": card.desc,
-                "username": card.user.username,
-                },
-        }
-    )
 
 @login_required(login_url="/authentication/login")       
 def view_card(request, id, str):
