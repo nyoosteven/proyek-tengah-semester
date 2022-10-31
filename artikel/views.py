@@ -100,7 +100,6 @@ def addcard(request,tipe):
                 "fields": {
                     "tipe":task.tipe,
                     "desc": task.desc,
-                    'user': task.user,
                 },
             },
         )
