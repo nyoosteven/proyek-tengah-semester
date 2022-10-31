@@ -61,18 +61,24 @@
         $("#loginForm").submit(function(e){
             e.preventDefault();
             var form = $(this);
-            
+            console.log(form.serialize())
             $.ajax(
             {
-                url : '',
+                url : 'validate/',
                 type : 'POST',
                 data : 
                     form.serialize(),    
                     csrfmiddlewaretoken : '{{ csrf_token }}',
                     
-                    success: function(){
-                        alert("Login Succesfull");
-                        window.location.href = "{% url 'loveiscaring:index' %}"
+                    success: function(data){
+                        
+                        if (data == "Valid"){
+                            alert("Login Succesfull");
+                            window.location.href = "{% url 'loveiscaring:index' %}"
+                        }
+                        else{
+                            alert("Login Failed")
+                        }
                     },
 
             });
