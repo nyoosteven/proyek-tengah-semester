@@ -2,7 +2,7 @@ from django.urls import path
 from authentication.views import register_profile
 from authentication.views import login_user
 from authentication.views import is_logged_in
-from authentication.views import index
+from loveiscaring.views import index
 
 app_name = 'authentication'
 
