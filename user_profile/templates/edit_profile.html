@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="edit" class="row row-cols-1 row-cols-md-4 g-4"> </div>
+
+<!--  Modal Section -->
+<div class="modal" data-mdb-backdrop="true" data-mdb-keyboard="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+  
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+  
+            <div class="modal-body">
+              <form method="POST" action="">  
+                {% csrf_token %}  
+                <table style="width:100%;border:1px solid black;margin-left:auto;margin-right:auto;">  
+                    {%for field in form%}
+                    <div class="mb-3">
+                        <label class="col-form-label">{{field.label}}</label>
+                        <p>{{field}}</p>
+                    </div>
+                    {%endfor%}  
+                    <tr>  
+                        <td></td>
+                        <td>
+                            <button type="button" class="btn-save btn-secondary" data-bs-dismiss="modal">Update Profile</button>
+                        </td>  
+                    </tr>  
+                </table>  
+              </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+<script> 
+    $(document).ready( function() {
+        async function getProfileEdited() {
+            return fetch("{% url 'user_profile:edit_profile' %}")
+                .then(response => response.json())
+                .then(profile => {
+                    return profile;
+                })
+                .catch(error => {
+                    console.error("ERROR:", error);
+                })
+        }
+
+        getProfileEdited().then(profile => {
+            let editProfileHTML = "";
+
+            var $items = $(
+            `
+                <div class="container py-5 mt-5">
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">First Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.first_name}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Last Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.last_name}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Age</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.age}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Birth Date</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.date_birth}}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.email}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Phone Number</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.phone_number}</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            `
+            );
+
+            document.getElementById("edit").innerHTML = editProfileHTML;
+        }); 
+    });
+
+    // handle Edit Profile button
+    $('.edit-profile').click( function() {
+        $('.modal').toggle();
+    });
+
+    // button close modal handler
+    $('.btn-close').click( function() {
+        $('.modal').toggle();
+    })
+
+    // POST form menggunakan ajax
+    $('.btn-save').click(function() {
+        $('.modal').toggle();
+
+        // Get values dari elemen di halamanan form:
+        let first_name = $('.first_name').val();
+        let last_name = $('.last_name').val();
+        let age = $('.age').val();
+        let date_birth = $('.date_birth').val();
+        let email = $('.email').val();
+        let phone_number = $('.phone_number').val();
+        let CSRFtoken = $('input[name="csrfmiddlewaretoken"]').val();
+        
+
+        // Kirim data yang diperoleh dengan POST
+        $.post( '/user_profile/edit_profile/', {first_name: first_name, last_name: last_name, age: age, date_birth: date_birth, email: email, phone_number: phone_number,  csrfmiddlewaretoken: CSRFtoken});
+
+        // Load data profile updated
+        async function getProfileEdited() {
+            return fetch("{% url 'user_profile:edit_profile' %}")
+                .then(response => response.json())
+                .then(profile => {
+                    return profile;
+                })
+                .catch(error => {
+                    console.error("ERROR:", error);
+                })
+        }
+
+        getProfileEdited().then(profile => {
+            let editProfileHTML = "";
+
+            var $items = $(
+            `
+                <div class="container py-5 mt-5">
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">First Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.first_name}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Last Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.last_name}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Age</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.age}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Birth Date</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.date_birth}}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.email}</p>
+                        </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Phone Number</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">${value.fields.phone_number}</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            `
+            );
+
+            document.getElementById("edit").innerHTML = editProfileHTML;
+        }); 
+
+        $('.first_name').empty();
+        $('.last_name').empty();
+        $('.age').empty();
+        $('.date_birth').empty();
+        $('.email').empty();
+        $('.phone_number').empty();
+        $('.modal').toggle();
+        })
+
+    // Mencegah pengiriman ulang form
+    if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
+
+  % endblock content %}
