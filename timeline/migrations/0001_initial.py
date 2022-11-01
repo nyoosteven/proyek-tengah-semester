@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream:timeline/migrations/0001_initial.py
-=======
-
->>>>>>> Stashed changes:loveiscaring/migrations/0001_initial.py
 
 from django.conf import settings
 from django.db import migrations, models
