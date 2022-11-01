@@ -89,7 +89,6 @@ def addcard(request,tipe):
         print(request.POST)
         description = request.POST.get("desc")
         task = Cards.objects.create(
-            user=request.user,
             desc=description,
             tipe=tipe
         )
@@ -100,7 +99,6 @@ def addcard(request,tipe):
                 "fields": {
                     "tipe":task.tipe,
                     "desc": task.desc,
-                    'user': task.user,
                 },
             },
         )
