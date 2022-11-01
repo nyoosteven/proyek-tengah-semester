@@ -4,8 +4,8 @@ from .models import Cards
 from django.http import JsonResponse
 
 class CreateCardForm(ModelForm):
-    text= forms.CharField(widget= forms.TextInput(attrs={'class': 'form-control', 'id': 'text'}))
-    desc= forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'desc'}))
+    text= forms.CharField(widget= forms.TextInput(attrs={'class': 'form-control', 'id': 'text', 'required': True}))
+    desc= forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'desc', 'required': True}))
     class Meta:
         model = Cards
         fields = ('text', 'desc')
@@ -14,6 +14,7 @@ class CreateCardForm(ModelForm):
         user = request.user
         text = self.cleaned_data.get("text")
         desc = self.cleaned_data.get("desc")
+
         card = Cards.objects.create(
             user=request.user,
             username=request.user.username,
