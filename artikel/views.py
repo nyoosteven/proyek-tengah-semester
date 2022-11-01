@@ -89,7 +89,6 @@ def addcard(request,tipe):
         print(request.POST)
         description = request.POST.get("desc")
         task = Cards.objects.create(
-            user=request.user,
             desc=description,
             tipe=tipe
         )
