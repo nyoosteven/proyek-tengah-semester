@@ -1,10 +1,12 @@
 from django.shortcuts import render
-
+from artikel.forms import MessageForm
 from artikel.models import *
 from django.http import JsonResponse,HttpResponse
 from django.core import serializers
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def anxiety(request):
+    form = MessageForm()
     context = {
         'user' : request.user,
         'title': 'Anxiety Disorder',
@@ -13,12 +15,14 @@ def anxiety(request):
         "subpencegah":"Kecemasan yang Anda miliki dapat mengganggu keseharian jika tidak dicegah dengan pola hidup yang sehat. Maka dari itu, cara ini bisa dilakukan untuk menjaga mental Anda agar aman dari rasa cemas.",
         "tips": ["Tidur cukup.", "Aktif berolahraga.", "Melakukan meditasi untuk melatih pernapasan dan mengendalikan emosi.", "Mengatur pola makan sehat.", "Menghindari rokok dan alkohol.", "Membatasi jumlah konsumsi kafein, seperti kopi dan teh."],
         'tipe': 0,
-        'islogin':request.user.is_authenticated
+        'islogin':request.user.is_authenticated,
+        'form':form
     }
-
+    
     return render(request, 'artikel.html',context)
 
 def depression(request):
+    form = MessageForm()
     context = {
         'user' : request.user,
         'title': 'Depression',
@@ -27,12 +31,14 @@ def depression(request):
         "subpencegah":"Hidup dengan depresi memang berat, tetapi pengobatan dapat membantu untuk meningkatkan kualitas hidup pengidapnya. Cobalah untuk menemui ahli medis untuk meminta beberapa metode pengobatan agar menjadi lebih baik. Apabila depresi masih tergolong ringan, perawatan diri sendiri mungkin masih bisa membantu. Jika perawatan diri sendiri sudah tidak efektif, pengidapnya mungkin memerlukan konseling psikiater atau obat yang diresepkan dokter. Beberapa cara yang bisa dilakukan dokter untuk membantu pengidap mengatasi depresi yang dialaminya, antara lain:",
         "tips": ["Perawatan diri sendiri", "Psikoterapi", "Hindari kebiasaan menyendiri dengan mencari komunitas yang baik.", "Terapi stimulasi otak", "Menghindari rokok dan alkohol.", "Berolahraga secara teratur, minimal 3–5 kali dalam seminggu dengan durasi sekitar 30 menit"],
         'tipe': 1,
-        'islogin':request.user.is_authenticated
+        'islogin':request.user.is_authenticated,
+        'form':form
     }
 
     return render(request, 'artikel.html',context)
 
 def schizophrenia(request):
+    form = MessageForm()
     context = {
         'user' : request.user,
         'title': 'Schizophrenia',
@@ -41,11 +47,13 @@ def schizophrenia(request):
         'subpencegah': 'Sampai saat ini, belum ada obat yang dapat menyembuhkan skizofrenia. Namun, ada pengobatan yang dapat mengendalikan dan mengurangi gejala. Penanganan tersebut dapat berupa:',
         'tips': ['Pemberian obat-obatan antipsikotik','Psikoterapi','Terapi elektrokonvulsif'],
         'tipe': 2,
-        'islogin':request.user.is_authenticated
+        'islogin':request.user.is_authenticated,
+        'form':form
     }
     return render(request, 'artikel.html',context)
 
 def eating(request):
+    form = MessageForm()
     context = {
         'user' : request.user,
         'title': 'Eating disorder',
@@ -54,11 +62,13 @@ def eating(request):
         'subpencegah':'Perawatan untuk gangguan makan umumnya melibatkan beberapa pendekatan yang berbeda. Mengingat dampaknya bisa berpengaruh terhadap kesehatan fisik, dibutuhkan kerja sama antara psikolog, dokter spesialis kejiwaan, dan ahli gizi. Selain rutin menjalani perawatan dari dokter secara disiplin, pasien juga harus senantiasa menjaga kondisinya dengan:',
         'tips': ['Menerapkan pola makan sehat yang telah dianjurkan oleh dokter','Mengurangi kebiasaan mengisolasi diri dari keluarga dan teman-teman','Menghentikan penggunaan pil diet atau obat pencahar','Mengelola stres dengan berolahraga atau melakukan aktivitas lain yang disenangi'],
         'tipe': 3,
-        'islogin':request.user.is_authenticated
+        'islogin':request.user.is_authenticated,
+        'form':form
     }
     return render(request,'artikel.html',context)
 
 def mood(request):
+    form = MessageForm()
     context = {
         'user' : request.user,
         'title': 'Mood disorder',
@@ -67,11 +77,13 @@ def mood(request):
         'subpencegah':'Sebagian besar kasus gangguan mood berhasil diatasi dengan berbagai jenis pengobatan. Melalui pengobatan ini, penderitanya dapat menjalankan aktivitas secara produktif serta menikmati hidup yang stabil dan sehat. Tergantung pada jenis dan tingkat keparahan yang dialami, berikut adalah beberapa cara atau prosedur pengobatan yang umum dilakukan untuk mengobati mood disorder:',
         'tips': ['Konsumsi obat dan menjalankan terapi secara teratur seperti yang disarankan dokter atau psikiater. Hindari berhenti atau mengganti konsumsi obat tanpa sepengetahuan dokter.','Tidur atau istirahat yang cukup untuk mencegah mood swing.','Terapkan pola makan sehat dan bergizi seimbang. Bila perlu konsumsi makanan untuk mengatasi depresi dan perubahan mood yang mungkin bisa membantu.','Tetap aktif, seperti rutin olahraga. Olahraga bisa meningkatkan mood, sehingga cocok dilakukan penderita gangguan ini.'],
         'tipe': 4,
-        'islogin':request.user.is_authenticated
+        'islogin':request.user.is_authenticated,
+        'form':form
     }
     return render(request,'artikel.html',context)
 
 def ptsd(request):
+    form = MessageForm()
     context = {
         'user' : request.user,
         'title': 'Post-traumatic stress disorder (PTSD)',
@@ -80,10 +92,12 @@ def ptsd(request):
         'subpencegah':'PTSD tidak bisa dicegah, tetapi ada beberapa cara yang dapat dilakukan bila Anda mengalami kejadian traumatis, misalnya:',
         'tips' : ['Bicarakan kepada keluarga, teman, atau terapis mengenai kejadian traumatis yang Anda alami.','Konsultasikan ke dokter jika Anda tidak dapat mengatasi perasaan yang timbul setelah mengalami kejadian tidak menyenangkan.'],
         'tipe': 5,
-        'islogin':request.user.is_authenticated
+        'islogin':request.user.is_authenticated,
+        'form':form
      }
     return render(request,'artikel.html',context)
-    
+
+@login_required(login_url="/authentication/login")       
 def addcard(request,tipe):
     if request.method == "POST":
         print(request.POST)
