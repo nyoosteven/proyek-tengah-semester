@@ -7,3 +7,6 @@ class Cards(models.Model):
     username = models.TextField(default="USER")
     text = models.TextField()
     desc = models.TextField()
+
+    def __str__(self):
+        return self.text[0:29] + "... by " + self.username if len(self.text) >= 30 else self.text + " by " + self.username

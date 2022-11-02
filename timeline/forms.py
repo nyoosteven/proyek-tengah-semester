@@ -14,6 +14,7 @@ class CreateCardForm(ModelForm):
         user = request.user
         text = self.cleaned_data.get("text")
         desc = self.cleaned_data.get("desc")
+
         card = Cards.objects.create(
             user=request.user,
             username=request.user.username,
