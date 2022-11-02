@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
 ROOT_URLCONF = 'project_django.urls'
@@ -144,3 +145,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'authentication.User'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_SECONDS = 15
+SESSION_TIMEOUT_REDIRECT = '/authentication/login/?next=/'
