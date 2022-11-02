@@ -23,4 +23,5 @@ urlpatterns = [
     path('authentication/', include('authentication.urls')),
     path('artikel/',include('artikel.urls')),
     path('profile/',include('user_profile.urls')),
+    path('feedback/',include('feedback.urls')),
 ]
