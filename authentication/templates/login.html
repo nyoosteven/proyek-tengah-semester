@@ -1,48 +1,58 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block meta %}
 <title>Login</title>
 {% endblock meta %}
 
 {% block content %}
-    <div class = "container">
-        <div class="row align-items-center vh-100">
-            <div class = "col-md-3 mx-auto">
-                <div class="card shadow border" style="width: 20rem;">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <div class = "login">
-                        
-                            <h1 class = "mb-4" style="text-align: center;">Login</h1>
-                        
-                            <form method="POST"  id = "loginForm">
-                                {% csrf_token %}
-                                <table style="margin: 12px;">
-                                    <tr>
-                                        <td><input type="text" name="username" placeholder="Username" class="form-control" required /></td>
-                                    </tr>
-                                            
-                                    <tr>
-                                        <td><input type="password" name="password" placeholder="Password" class="form-control" required /></td>
-                                    </tr>
-                        
-                                    <tr style="align-items: center;">
-                                        <td style="align-items: center ;"><input class="btn btn-primary" type="submit" value="Login"></td>
-                                    </tr>
-                                </table>
-                            </form>
-                        
-                            {% if messages %}
-                                <ul>
-                                    {% for message in messages %}
-                                        <li>{{ message }}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}     
+<section class="vh-100" style="background-color: #eee;">
+    <div class = "container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1"> 
+                            
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
+                            
+                                <form class="mx-1 mx-md-4" method="POST"  id = "loginForm">
+                                    {% csrf_token %}
+                            
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" name="username" placeholder="Username" class="form-control" required  />
+                                        </div>
+                                    </div>
+                            
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa-solid fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" name="password" placeholder="Password" class="form-control" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                                    </div>
                                 
-                            Belum mempunyai akun? <a class="readmore" href="{% url 'authentication:register' %}">Buat Akun</a>
-                        
+                                </form>
+     
+                                    <div class="text-center">                                    
+                                        Belum mempunyai akun? <a class="readmore" href="{% url 'authentication:register' %}">Buat Akun</a>
+                                    </div>    
+                                
+                            </div>
+
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                <img class="img-fluid" alt="Sample image" src="{% static 'images/login.png' %}"/>
+                            </div>
+                            
                         </div>
-                
+                        
                     </div>
                 
                 </div>
@@ -52,8 +62,10 @@
         </div>
 
     </div>
+
+</section>
     
-</div>
+
 
 
 <script>
