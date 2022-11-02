@@ -7,13 +7,26 @@
 
 {% block content %}
 <!-- Jumbotron -->
+<script>
+  $(document).ready(function () {
+    var typed = new Typed('#typed', {
+          strings: ["caring"],
+          typeSpeed: 120,
+          backSpeed: 120,
+          backDelay: 2000,
+          startDelay: 501,
+          loop: true,
+        });
+  });
+</script>
+
 <section class="py-5 text-center container mt-5">
   <div class="row py-5 my-5">
     <div class="col-lg-6 col-md-8 col-12 mx-auto">
-      <p class="fw-light display-4 font-kanit-regular mb-0 d-inline">love. is. <p class="fw-light display-4 font-kanit-regular mb-0 half-background d-inline">caring</p></p>
-      <p class="lead text-muted mt">A place where you can share your thoughts</p>
+      <p class="fw-light display-4 font-kanit-regular mb-0 d-inline">love. is. <span class="fw-light display-4 font-kanit-regular mb-0 half-background d-inline" id="typed"></span></p>
+      <p class="lead text-muted mt-4 ">A place where you can share your thoughts</p>
       <p class="mb-0">
-        <a href="{% url 'timeline:show_timeline' %}" class="btn btn-primary mt-5 px-5 py-2 border rounded-0 font-kanit">Lihat Timeline</a>
+        <a href="{% url 'timeline:show_timeline' %}" class="btn btn-primary mt-4 px-5 py-2 border rounded-0 font-kanit-light">Lihat Timeline</a>
       </p>
     </div>
   </div>
@@ -26,96 +39,96 @@
     <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> -->
     <div class="row g-4">
       <div class="col-6 col-md-4 col-xxl-2 d-flex">
-        <div class="card border-0 rounded-0 bg-card-1">
-          <img class="bd-placeholder-img card-img-top img-fluid border-0 rounded-0" src="{% static 'mentalhealth1.jpg' %}"/>
+        <div class="card border-0 rounded-0 bg-card-1 w-90">
+          <img class="bd-placeholder-img card-img-top img-fluid border-0 rounded-0" src="{% static 'images/mentalhealth1.jpg' %}"/>
 
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
               <h5 class="card-title font-kanit-regular">Depression</h5>
-              <p class="card-text">A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder</p>
+              <p class="card-text text-muted">A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder</p>
             </div>
             <div class="d-flex justify-content-end align-items-end">
-              <small class="h6 mb-0 font-kanit-regular"><a class="readmore" href="article.html">Learn more ></a></small>
+              <small class="h6 mb-0 font-kanit-regular"><a class="readmore" href="{% url 'artikel:depression' %}">Learn more ></a></small>
             </div>
           </div>
         </div>
       </div>
       
       <div class="col-6 col-md-4 col-xxl-2 d-flex align-items-stretch">
-        <div class="card border-0 rounded-0 bg-card-2">
-          <img class="bd-placeholder-img card-img-top border-0 rounded-0" src="{% static 'mentalhealth2.jpg' %}"/>
+        <div class="card border-0 rounded-0 bg-card-2 w-90">
+          <img class="bd-placeholder-img card-img-top border-0 rounded-0" src="{% static 'images/mentalhealth2.jpg' %}"/>
 
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
               <h5 class="card-title font-kanit-regular">Schizophrenia</h5>
-              <p class="card-text">A disorder that affects a person's ability to think, feel and behave clearly.</p>
+              <p class="card-text text-muted">A disorder that affects a person's ability to think, feel and behave clearly.</p>
             </div>
             <div class="d-flex justify-content-end align-items-end">
-              <small class="h6 mb-0 font-kanit-regular"><a class="readmore" href="article.html">Learn more ></a></small>
+              <small class="h6 mb-0 font-kanit-regular"><a class="readmore" href="{% url 'artikel:schizophrenia' %}">Learn more ></a></small>
             </div>
           </div>
         </div>
       </div>
 
       <div div class="col-6 col-md-4 col-xxl-2">
-        <div class="card border-0 rounded-0 bg-card-3">
-          <img class="bd-placeholder-img card-img-top border-0 rounded-0" src="{% static 'mentalhealth3.jpg' %}"/>
+        <div class="card border-0 rounded-0 bg-card-3 w-90">
+          <img class="bd-placeholder-img card-img-top border-0 rounded-0" src="{% static 'images/mentalhealth3.jpg' %}"/>
 
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
-              <h5 class="card-title font-kanit-regular">Anxiety disorder</h5>
-              <p class="card-text">A mental health disorder characterised by feelings of worry, anxiety or fear that are strong enough to interfere with one's daily activities.</p>
+              <h5 class="card-title font-kanit-regular">Anxiety Disorder</h5>
+              <p class="card-text text-muted">A mental health disorder characterised by feelings of worry, anxiety or fear that are strong enough to interfere with one's daily activities.</p>
             </div>
             <div class="d-flex justify-content-end align-items-end">
-              <small class="h6 mb-0 mt-3 font-kanit-regular"><a class="readmore" href="article.html">Learn more ></a></small>
+              <small class="h6 mb-0 mt-3 font-kanit-regular"><a class="readmore" href="{% url 'artikel:anxiety' %}">Learn more ></a></small>
             </div>
           </div>
         </div>
       </div>
 
       <div class="col-6 col-md-4 col-xxl-2 d-flex align-items-stretch">
-        <div class="card border-0 rounded-0 bg-card-4">
-          <img class="bd-placeholder-img card-img-top img-fluid  border-0 rounded-0" src="{% static 'mentalhealth6.jpg' %}"/>
+        <div class="card border-0 rounded-0 bg-card-4 w-90">
+          <img class="bd-placeholder-img card-img-top img-fluid  border-0 rounded-0" src="{% static 'images/mentalhealth6.jpg' %}"/>
 
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
-              <h5 class="card-title font-kanit-regular">Depression</h5>
-              <p class="card-text">A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder</p>
+              <h5 class="card-title font-kanit-regular">Eating Disorder</h5>
+              <p class="card-text text-muted">A mental disorder defined by abnormal eating behaviors that negatively affect a person's physical or mental health.</p>
             </div>
             <div class="d-flex justify-content-end align-items-end">
-              <small class="h6 mb-0 mt-3 font-kanit-regular"><a class="readmore" href="article.html">Learn more ></a></small>
+              <small class="h6 mb-0 mt-3 font-kanit-regular"><a class="readmore" href="{% url 'artikel:eating' %}">Learn more ></a></small>
             </div>
           </div>
         </div>
       </div>
       
       <div class="col-6 col-md-4 col-xxl-2 d-flex align-items-stretch">
-        <div class="card border-0 rounded-0 bg-card-5">
-          <img class="bd-placeholder-img card-img-top border-0 rounded-0" src="{% static 'mentalhealth4.jpg' %}"/>
+        <div class="card border-0 rounded-0 bg-card-5 w-90">
+          <img class="bd-placeholder-img card-img-top border-0 rounded-0" src="{% static 'images/mentalhealth4.jpg' %}"/>
 
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
-              <h5 class="card-title font-kanit-regular">Schizophrenia</h5>
-              <p class="card-text">A disorder that affects a person's ability to think, feel and behave clearly.</p>
+              <h5 class="card-title font-kanit-regular">Mood Disorder</h5>
+              <p class="card-text text-muted">A mental health class that health professionals use to broadly describe all types of depression and bipolar disorders.</p>
             </div>
             <div class="d-flex justify-content-end align-items-end">
-              <small class="h6 mb-0 mt-3 font-kanit-regular"><a class="readmore" href="article.html">Learn more ></a></small>
+              <small class="h6 mb-0 mt-3 font-kanit-regular"><a class="readmore" href="{% url 'artikel:mood' %}">Learn more ></a></small>
             </div>
           </div>
         </div>
       </div>
 
-      <div div class="col-6 col-md-4 col-xxl-2">
-        <div class="card border-0 rounded-0 bg-card-1">
-          <img class="bd-placeholder-img card-img-top border-0 rounded-0" src="{% static 'mentalhealth3.jpg' %}"/>
+      <div div class="col-6 col-md-4 col-xxl-2 d-flex align-items-stretch">
+        <div class="card border-0 rounded-0 bg-card-6 w-90">
+          <img class="bd-placeholder-img card-img-top border-0 rounded-0" src="{% static 'images/mentalhealth5.jpg' %}"/>
 
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
-              <h5 class="card-title font-kanit-regular">Anxiety disorder</h5>
-              <p class="card-text">A mental health disorder characterised by feelings of worry, anxiety or fear that are strong enough to interfere with one's daily activities.</p>
+              <h5 class="card-title font-kanit-regular">PTSD</h5>
+              <p class="card-text text-muted">A mental health condition that's triggered by a terrifying event — either experiencing it or witnessing it.</p>
             </div>
             <div class="d-flex justify-content-end align-items-end">
-              <small class="h6 mb-0 mt-3 font-kanit-regular"><a class="readmore" href="article.html">Learn more ></a></small>
+              <small class="h6 mb-0 mt-3 font-kanit-regular"><a class="readmore" href="{% url 'artikel:ptsd' %}">Learn more ></a></small>
             </div>
           </div>
         </div>

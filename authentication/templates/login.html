@@ -5,41 +5,86 @@
 {% endblock meta %}
 
 {% block content %}
+    <div class = "container">
+        <div class="row align-items-center vh-100">
+            <div class = "col-3 mx-auto">
+                <div class="card shadow border " style="width: 20rem;">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <div class = "login">
+                        
+                            <h1 class = "mb-4" style="text-align: center;">Login</h1>
+                        
+                            <form method="POST"  id = "loginForm">
+                                {% csrf_token %}
+                                <table style="margin: 12px;">
+                                    <tr>
+                                        <td><input type="text" name="username" placeholder="Username" class="form-control" required /></td>
+                                    </tr>
+                                            
+                                    <tr>
+                                        <td><input type="password" name="password" placeholder="Password" class="form-control" required /></td>
+                                    </tr>
+                        
+                                    <tr style="align-items: center;">
+                                        <td style="align-items: center ;"><input class="btn btn-primary" type="submit" value="Login"></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}     
+                                
+                            Belum mempunyai akun? <a class="readmore" href="{% url 'authentication:register' %}">Buat Akun</a>
+                        
+                        </div>
+                
+                    </div>
+                
+                </div>
 
-<div class = "login">
+            </div>
 
-    <h1>Login</h1>
+        </div>
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Belum mempunyai akun? <a href="{% url 'loveiscaring:register' %}">Buat Akun</a>
-
+    </div>
+    
 </div>
+
+
+<script>
+    $(document).ready(function() {
+        $("#loginForm").submit(function(e){
+            e.preventDefault();
+            var form = $(this);
+            console.log(form.serialize())
+            $.ajax(
+            {
+                url : 'validate/',
+                type : 'POST',
+                data : 
+                    form.serialize(),    
+                    csrfmiddlewaretoken : '{{ csrf_token }}',
+                    
+                    success: function(data){
+                        
+                        if (data == "Valid"){
+                            alert("Login Succesfull");
+                            window.location.href = "{% url 'loveiscaring:index' %}"
+                        }
+                        else{
+                            alert("Login Failed")
+                        }
+                    },
+
+            });
+             
+         });
+    });
+</script>
 
 {% endblock content %}

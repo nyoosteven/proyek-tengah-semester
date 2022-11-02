@@ -6,29 +6,51 @@
 
 {% block content %}  
 
-<div class = "login">
+<style>
+    .helptext{
+        display: none;
+    }
+</style>
+
+<div class = "container">
+  <div class="row align-items-center vh-100">
+    <div class = "col-6 mx-auto">
+        <div class="card shadow border " style="width: 40rem;">
+            <div class="card-body d-flex flex-column align-items-center">
+                <div class = "login">
+                    
+                    <h1 class = "mb-4" style="text-align: center;">Formulir Registrasi</h1>  
+                
+                        <form method="POST" action="" class="form-example">  
+                            {% csrf_token %}  
+                            <table>  
+                                {{ form.as_table }}  
+                                <tr>  
+                                    <td></td>
+                                    <td><input class="btn btn-primary" type="submit" name="submit" value="Daftar"/></td>  
+                                </tr>  
+                            </table>  
+                        </form>
+                
+                    {% if messages %}  
+                        <ul>   
+                            {% for message in messages %}  
+                                <li>{{ message }}</li>  
+                                {% endfor %}  
+                        </ul>   
+                    {% endif %}
+                
+                </div>  
+
+            </div>
+        </div>
+    </div>
+  </div>  
+</div>
+
+
+<script>
     
-    <h1>Formulir Registrasi</h1>  
-
-        <form method="POST" action="" class="form-example">  
-            {% csrf_token %}  
-            <table style="width:100%;border:1px solid black;margin-left:auto;margin-right:auto;">  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
-
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
-
-</div>  
+</script>
 
 {% endblock content %}

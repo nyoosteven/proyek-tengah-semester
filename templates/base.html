@@ -8,161 +8,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <link rel="icon" type="image/x-icon" href="{% static 'logo.ico' %}">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" type="image/x-icon" href="{% static 'images/logo.ico' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    #fixedbutton {
-        position: fixed;
-        bottom: 0px;
-        right: 0px; 
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-      .divider{
-        display: none;
-      }
-    }
-
-    .b-example-divider {
-      height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
-      border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
-
-    .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-    }
-
-    .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
-    }
-
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
-
-    .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .m-6{
-      padding: 4.5rem 0;
-    }
-
-    .py-6{
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
-
-    .font-kanit-xlight{
-      font-family: 'Kanit', sans-serif;
-      font-weight: 200;
-    }
-
-    .font-kanit-light{
-      font-family: 'Kanit', sans-serif;
-      font-weight: 300;
-    }
-
-    .font-kanit-regular{
-      font-family: 'Kanit', sans-serif;
-      font-weight: 400;
-    }
-    
-    .font-secular-one{
-      font-family: 'Secular One', sans-serif;
-    }
-
-    .half-background { 
-      background: linear-gradient(to top, #9BB39D 40%, transparent 0%); 
-    }
-
-    ::selection {
-      color: white;
-      background: #9BB39D;
-    }
-
-    .readmore:link {
-      color: #A48054;
-      text-decoration: none;
-    }
-
-    /* visited link */
-    .readmore:visited {
-      color: #CEA16A;
-    }
-
-    /* mouse over link */
-    .readmore:hover {
-      color: #CEA16A;
-    }
-
-    /* selected link */
-    .readmore:active {
-      color: #ff8c00;
-    }
-
-    .bg-navbar{
-      background-color: #f9f9f9;
-    }
-    
-    .bg-album{
-      background-color: #faf5f0;
-    }
-
-    .bg-card-1{
-      box-shadow: 5px 5px #FF9684;
-    }
-
-    .bg-card-2{
-      box-shadow: 5px 5px #CEA16A;
-    }
-
-    .bg-card-3{
-      box-shadow: 5px 5px #7F6485;
-    }
-
-    .bg-card-4{
-      box-shadow: 5px 5px #FFB8D0;
-    }
-
-    .bg-card-5{
-      box-shadow: 5px 5px #E2BEA6;
-    }
-
-    .bg-card-6{
-      box-shadow: 5px 5px #FF9684;
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   {% block meta %}
   {% endblock meta %}
 </head>
@@ -172,32 +25,33 @@
   <nav class="navbar shadow navbar-expand-md fixed-top bg-navbar">
     <div class="container">
 
-      <a class="navbar-brand" href="{% url 'loveiscaring:index' %}"><img class="bd-placeholder-img card-img-top" src="{% static 'logo.png' %}" style="width: 30px;"/>
+      <a class="navbar-brand" href="{% url 'loveiscaring:index' %}"><img class="bd-placeholder-img card-img-top" src="{% static 'images/logo.png' %}" style="width: 30px;"/>
       </a>
       
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">love is caring</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body justify-content-between align-items-center">
           
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 Conditions
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Conditions 1</a></li>
-                <li><a class="dropdown-item" href="#">Conditions 2</a></li>
-                <li><a class="dropdown-item" href="#">Conditions 3</a></li>
-                <li><a class="dropdown-item" href="#">Conditions 4</a></li>
-                <li><a class="dropdown-item" href="#">Conditions 5</a></li>
+                <li><a class="dropdown-item" href="{% url 'artikel:depression' %}">Depression</a></li>
+                <li><a class="dropdown-item" href="{% url 'artikel:schizophrenia' %}">Schizophrenia</a></li>
+                <li><a class="dropdown-item" href="{% url 'artikel:anxiety' %}">Anxiety</a></li>
+                <li><a class="dropdown-item" href="{% url 'artikel:eating' %}">Eating Disorder</a></li>
+                <li><a class="dropdown-item" href="{% url 'artikel:mood' %}">Mood Disorder</a></li>
+                <li><a class="dropdown-item" href="{% url 'artikel:ptsd' %}">PTSD</a></li>
               </ul>
             </li>
           </ul>
@@ -212,11 +66,11 @@
             </li>
             {% else %}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle fs-6 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle fs-6 " href="#" role="button" data-bs-toggle="dropdown">
                 Welcome, {{user}}!
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'user_profile:show_profile' %}">Profile</a></li>
                 <li><a class="dropdown-item" href="{% url 'loveiscaring:logout' %}">Logout</a></li>
               </ul>
             </li>  
@@ -229,15 +83,18 @@
 
   {% block content %}
   {% endblock content %}
-  <footer class="text-muted py-5">
-    <div class="container">
-      <p class="float-end mb-1">
-        <a href="#">Back to top</a>
-      </p>
-      <p class="mb-1">&copy; Kelompok PBP D12</p>
-      <p class="mb-0">Nulis apa yah</p>
-    </div>
-  </footer>
+  <div class="container ">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+      <p class="col-md-4 mb-0 pe-5 text-muted">love. is. caring<br>by Kelompok PBP D-12</p>
+  
+      <span class="col-md-4 d-flex align-items-center justify-content-center link-dark text-decoration-none" id="logo-footer"><img class="bd-placeholder-img card-img-top" src="{% static 'images/logo.png' %}" style="width: 40px;"/></span>
+  
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="/" class="nav-link px-2 ps-0 text-muted">Home</a></li>
+        <li class="nav-item"><a href="/about" class="nav-link px-2 ps-0 text-muted">About</a></li>
+      </ul>
+    </footer>
+  </div>
 </body>
 
 </html>

@@ -2,5 +2,259 @@
 
 {% block content %}
 
+<!--  Modal Section -->
+<div class="modal fade" id="modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create a Note</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          {% csrf_token %}
+          {%for field in form%}
+              <div class="mb-3">
+                  <label class="col-form-label" id="labelForm">{{field.label}}</label>
+                  <p id="labelForm">{{field}}</p>
+              </div>
+          {%endfor%}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="tambahNote">Add My Note</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="background-color: #eee;">
+
+  <div class="container py-5 mt-5">
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/5987/5987420.png" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{user.first_name}}</h5>
+            <p class="text-muted mb-1">{{user.date_birth}}</p>
+            <p class="text-muted mb-1">{{user.email}}</p>
+            <p class="text-muted mb-4">{{user.phone_number}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">First Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.first_name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Last Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.last_name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Age</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.age}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Birth Date</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.date_birth}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone Number</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.phone_number}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <a type="button" class="add-note btn rounded-pill btn-primary me-md-2" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@mdo">Add Note</a>
+      </div>
+
+      <br>
+      <!-- cards quotes -->
+      <h4 class="fw-light">My Quotes</h4>
+      <div class="album py-5 bg-album">
+        <div class="container">
+          <div class="row g-4 grid" id="contener"></div>
+        </div>
+      </div>
+
+      <br>
+      <!-- container notes -->
+      <h4 class="fw-light">My Notes</h4>
+      <div class="album py-5 bg-album">
+        <div class="container">
+          <div class="row g-4 grid" id="note_contener"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+  $(document).ready(function () {
+
+    // Menampilkan card quote milik user
+    $.get("{% url 'user_profile:show_json' %}", function (data) {
+      var bgCard= ['bg-card-1', 'bg-card-2','bg-card-3', 'bg-card-4','bg-card-5', 'bg-card-6'];
+      var i = 0;
+      $.each(data, function(index, value) {
+        if (i === 6){
+          i = 0;
+        }
+        var $items = $(
+          `
+                <div class="col-6 col-md-3 col-xxl-2 grid-item">
+                  <div class="card border-0 rounded-3 ${bgCard[i]} w-90">  
+                    <div class="card-body border border-2 rounded-3 bg-card-body">
+                      <span class="h3 font-secular-one mb-0">"</span>
+                      <div>
+                        <h5 class="card-title">${value.fields.text}</h5>
+                        <p>${value.fields.desc}</p>
+                      </div>
+                      <div class="d-flex justify-content-end align-items-end">
+                        {% if not request.user.is_authenticated %}
+                        <small class="text-muted">Login untuk melihat username</small>
+                        {% else %}
+                        <small class="text-muted">${value.fields.username}</small>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          `
+        );
+        $("#contener").prepend($items).masonry('prepended', $items );
+        i++;
+      });
+
+      $('.grid').masonry({
+        // options
+        itemSelector: '.grid-item',
+      });
+    });
+    
+    // Menampilkan notes milik user
+    var j = 0;
+    $.get("{% url 'user_profile:show_note_json' %}", function (data) {
+      $.each(data, function(index, value) {
+        if (j === 6){
+          j = 0;
+        }
+
+        let formattedDate = new Date(value.fields.date);
+        formattedDate = formattedDate.toDateString();
+        
+        var $itemsNote = $(
+          `
+                <div class="col-6 col-md-3 col-xxl-2 grid-item">
+                  <div class="card border-0 rounded-3 bg-card-5 w-90">  
+                    <div class="card-body border border-2 rounded-3 bg-card-body">
+                      <div>
+                        <h5 class="card-title">${value.fields.title}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${ formattedDate }</h6>
+                        <p>${value.fields.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          `
+        );
+        $("#note_contener").prepend($itemsNote).masonry('prepended', $itemsNote );
+        j++;
+      });
+    });
+
+    $("#tambahNote").click(function(e){
+      var title = $("#title").val();
+      var description = $("#description").val();
+      var dataNote = {title: title, description: description,  csrfmiddlewaretoken: '{{ csrf_token }}'};
+      $.post("{% url 'user_profile:create_card_note' %}", dataNote, function (response) {
+        if (j === 6){
+          j = 0;
+        }
+
+        let formattedDate = new Date(response.fields.date);
+        formattedDate = formattedDate.toDateString();
+
+
+        var $itemsNote = $(
+          `
+                <div class="col-6 col-md-3 col-xxl-2 grid-item">
+                  <div class="card border-0 rounded-3 bg-card-5 w-90">  
+                    <div class="card-body border border-2 rounded-3 bg-card-body">
+                      <div>
+                        <h5 class="card-title">${title}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${ formattedDate }</h6>
+                        <p>${description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          `
+        );
+        $("#note_contener").prepend($itemsNote).masonry('prepended', $itemsNote );
+        i++;
+      });
+    });
+
+    $('.grid').masonry({
+      // options
+      itemSelector: '.grid-item',
+    });
+
+    $("#labelForm").trigger("reset");
+    
+    // Mencegah pengiriman ulang form
+    if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+    }
+
+  });
+
+</script>
+
 
 {% endblock content %}
