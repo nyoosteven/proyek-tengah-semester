@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'authentication',
     'timeline',
     'artikel',
-    'user_profile'
+    'user_profile',
+    'feedback',
 ]
 
 MIDDLEWARE = [
