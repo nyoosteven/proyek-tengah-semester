@@ -9,7 +9,6 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
 from authentication.forms import RegisterForm
-from authentication.models import User
 # Create your views here.
 
 def register_profile(request):
@@ -48,10 +47,3 @@ def validate_login(request):
             return HttpResponse("not Valid")
 
     return HttpResponse("not Valid")
-
-def validate_username(request):
-    username = request.GET.get('username', None)
-    data = {
-        'is_taken': User.objects.filter(username=username).exists()
-    }
-    return JsonResponse(data)
