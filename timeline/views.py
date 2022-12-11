@@ -5,6 +5,7 @@ from django.core import serializers
 from timeline.models import Cards
 from .forms import CreateCardForm
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -18,7 +19,7 @@ def show_json(request):
     data = Cards.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-@login_required(login_url="/authentication/login")       
+@csrf_exempt   
 def add_card(request):
     form = CreateCardForm(data=request.POST or None)    
     if request.method == "POST" and form.is_valid():
