@@ -27,8 +27,6 @@ def add_card(request):
         return JsonResponse(
             data
         )
-    else:
-        return HttpResponse("gagal")
 
 @login_required(login_url="/authentication/login")       
 def view_card(request, id, str):
