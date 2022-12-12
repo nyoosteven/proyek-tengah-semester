@@ -23,6 +23,18 @@ def show_json(request):
     data = Cards.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+def show_profile_detail(request):
+    return JsonResponse({
+    "fields": {
+        "fn": request.user.first_name,
+        "ln": request.user.last_name,
+        "age": request.user.age,
+        "bd": request.user.date_birth,
+        "em": request.user.email,
+        "pn": request.user.phone_number,
+        },
+    })
+
 def show_note_json(request):
     dataNote = Notes.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", dataNote), content_type="application/json")
