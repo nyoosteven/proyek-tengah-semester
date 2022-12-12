@@ -28,6 +28,20 @@ def add_card(request):
             data
         )
 
+@csrf_exempt   
+def add_card_flutter(request):
+    if request.method == 'POST':
+        text = request.POST.get('text')
+        desc = request.POST.get('desc')
+        user = request.user
+        card = Cards.objects.create(
+            user=user,
+            username=request.user.username,
+            text=text,
+            desc=desc,
+        )
+        return JsonResponse({"Message": "Task Success"},status=200)
+
 @login_required(login_url="/authentication/login")       
 def view_card(request, id, str):
     data = Cards.objects.filter(id=id)
