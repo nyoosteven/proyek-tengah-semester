@@ -125,11 +125,31 @@ def logout_flutter(request):
 @csrf_exempt
 def register_flutter(request):
     if request.method == "POST":
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
+        print(request.POST)
+        data =request.POST
 
-            return JsonResponse({
-            "status": True,
-            "message": "Successfully registered"
-            }, status=200)
+        username = data["username"]
+        email = data["email"]
+        password = data["password"]
+        first_name = data["first_name"]
+        last_name = data["last_name"]
+        age = data["age"]
+        date_birth = data["date_birth"]
+        phone_number = data["phone_number"]
+
+        newUser = User.objects.create_user(
+            username = username,
+            email = email, 
+            password = password,
+            first_name = first_name,
+            last_name = last_name, 
+            age = age,
+            date_birth = date_birth,
+            phone_number = phone_number,
+        )
+
+        newUser.save()
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+        
