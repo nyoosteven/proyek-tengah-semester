@@ -6,6 +6,7 @@ from timeline.models import Cards
 from .forms import CreateCardForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from authentication.models import User
 
 # Create your views here.
 
@@ -33,10 +34,13 @@ def add_card_flutter(request):
     if request.method == 'POST':
         text = request.POST.get('text')
         desc = request.POST.get('desc')
-        user = request.user
+        user = User.objects.create_user(first_name='tester',
+        username='anonymous', 
+        password='123', 
+        email='testuser@something.com')
         card = Cards.objects.create(
             user=user,
-            username=request.user.username,
+            username=user.username,
             text=text,
             desc=desc,
         )

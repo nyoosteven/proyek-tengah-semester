@@ -11,6 +11,6 @@ urlpatterns = [
     path('', show_timeline, name='show_timeline'),
     path('json/', show_json, name='show_json'),
     path('add-card/', add_card, name='add_card'),
-    path('add-card-flutter/', add_card_flutter, name='add_card'),
+    path('add-card-flutter/', add_card_flutter, name='add_card_flutter'),
     path("view_card/<int:id>/<str:str>", view_card, name="view_card"),
 ]
