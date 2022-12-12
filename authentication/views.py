@@ -125,9 +125,9 @@ def logout_flutter(request):
 @csrf_exempt
 def register_flutter(request):
     if request.method == "POST":
-        print(request.POST)
-        data =request.POST
 
+        data =request.POST
+        
         username = data["username"]
         email = data["email"]
         password = data["password"]
