@@ -30,7 +30,7 @@ def show_profile_detail(request):
         "ln": request.user.last_name,
         "age": request.user.age,
         "bd": request.user.date_birth,
-        "em": request.user.email,
+        "email": request.user.email,
         "pn": request.user.phone_number,
         },
     })
