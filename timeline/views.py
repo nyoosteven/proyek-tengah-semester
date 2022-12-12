@@ -44,7 +44,14 @@ def add_card_flutter(request):
             text=text,
             desc=desc,
         )
-        return JsonResponse({"Message": "Task Success"},status=200)
+        return JsonResponse({
+            "pk": card.id,
+            "fields": {
+                "text": card.text,
+                "desc": card.desc,
+                "username": card.user.username,
+                },
+        })
 
 @login_required(login_url="/authentication/login")       
 def view_card(request, id, str):
