@@ -3,6 +3,7 @@ from django.shortcuts import render
 from artikel.models import Cards
 from django.http import JsonResponse
 # Create your views here.
+# disuruh ferry
 def anxiety(request):
     context = {
         'user' : request.user,
